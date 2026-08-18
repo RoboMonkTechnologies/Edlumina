@@ -5,6 +5,7 @@ import sharp from 'sharp'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const logo = join(root, 'public/assets/edlumina-logo.png')
+const mark = join(root, 'public/assets/edlumina-mark.png')
 const fontsDir = join(root, 'public/fonts')
 const assetsDir = join(root, 'public/assets')
 
@@ -35,7 +36,16 @@ for (const size of sizes) {
     .toFile(join(assetsDir, `logo-${size}.webp`))
 }
 
-await sharp(logo).resize(96, 96).png({ compressionLevel: 9 }).toFile(join(assetsDir, 'logo-96.png'))
-await sharp(logo).resize(192, 192).png({ compressionLevel: 9 }).toFile(join(assetsDir, 'logo-192.png'))
+const faviconSizes = [32, 96, 192]
+for (const size of faviconSizes) {
+  const name = size === 32 ? 'favicon-32.png' : `logo-${size}.png`
+  await sharp(mark)
+    .resize(size, size, {
+      fit: 'contain',
+      background: { r: 247, g: 244, b: 236, alpha: 1 },
+    })
+    .png({ compressionLevel: 9 })
+    .toFile(join(assetsDir, name))
+}
 
 console.log('Wrote public/fonts and responsive logo assets.')
