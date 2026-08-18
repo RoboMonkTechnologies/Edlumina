@@ -1,0 +1,354 @@
+/**
+ * Edlumina — Component-layer utility classes
+ * Composable patterns built on design tokens.
+ */
+
+@layer components {
+  /* ── Layout ─────────────────────────────────────────────────── */
+  .ed-container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+  }
+
+  @media (min-width: 768px) {
+    .ed-container {
+      padding-inline: var(--container-padding-md);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ed-container {
+      padding-inline: var(--container-padding-lg);
+    }
+  }
+
+  .ed-container--narrow {
+    max-width: var(--container-narrow);
+  }
+
+  .ed-container--content {
+    max-width: var(--container-content);
+  }
+
+  .ed-section {
+    padding-block: var(--spacing-section-sm);
+  }
+
+  @media (min-width: 768px) {
+    .ed-section {
+      padding-block: var(--spacing-section);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ed-section {
+      padding-block: var(--spacing-section-lg);
+    }
+  }
+
+  /* ── Technical grid pattern ───────────────────────────────── */
+  .ed-grid-pattern {
+    background-image:
+      linear-gradient(rgb(7 28 63 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(7 28 63 / 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .ed-grid-pattern--dark {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* ── Gold rule (logo-inspired framing) ──────────────────────── */
+  .ed-gold-rule {
+    display: block;
+    height: 1px;
+    background-color: var(--color-gold);
+    border: none;
+  }
+
+  .ed-gold-rule--vertical {
+    width: 1px;
+    height: 100%;
+    min-height: 2rem;
+  }
+
+  /* ── Buttons ────────────────────────────────────────────────── */
+  .ed-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    line-height: 1;
+    border-radius: 0;
+    border: var(--border-width-thick) solid transparent;
+    transition:
+      background-color var(--transition-base),
+      border-color var(--transition-base),
+      color var(--transition-base),
+      box-shadow var(--transition-base);
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .ed-btn:disabled,
+  .ed-btn[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .ed-btn--sm {
+    padding: 0.625rem 1.25rem;
+    font-size: var(--text-label-md);
+  }
+
+  .ed-btn--md {
+    padding: 0.875rem 1.75rem;
+  }
+
+  .ed-btn--lg {
+    padding: 1rem 2.25rem;
+    font-size: var(--text-body);
+  }
+
+  .ed-btn--primary {
+    background-color: var(--color-gold);
+    color: var(--color-dark);
+    border-color: var(--color-gold);
+  }
+
+  .ed-btn--primary:hover:not(:disabled) {
+    background-color: var(--color-bright-gold);
+    border-color: var(--color-bright-gold);
+  }
+
+  .ed-btn--primary:active:not(:disabled) {
+    background-color: var(--color-gold);
+  }
+
+  .ed-btn--secondary {
+    background-color: transparent;
+    color: var(--color-navy);
+    border-color: var(--color-navy);
+  }
+
+  .ed-btn--secondary:hover:not(:disabled) {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+  }
+
+  .ed-btn--secondary-on-dark {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: rgb(255 255 255 / 0.4);
+  }
+
+  .ed-btn--secondary-on-dark:hover:not(:disabled) {
+    background-color: var(--color-white);
+    color: var(--color-navy);
+    border-color: var(--color-white);
+  }
+
+  .ed-btn--ghost {
+    background-color: transparent;
+    color: var(--color-gold);
+    border-color: transparent;
+    padding-inline: 0.5rem;
+  }
+
+  .ed-btn--ghost:hover:not(:disabled) {
+    color: var(--color-bright-gold);
+  }
+
+  /* ── Section label ──────────────────────────────────────────── */
+  .ed-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-teal);
+    line-height: 1;
+  }
+
+  .ed-label--gold {
+    color: var(--color-gold);
+  }
+
+  .ed-label--muted {
+    color: var(--color-muted);
+  }
+
+  .ed-label--on-dark {
+    color: rgb(255 255 255 / 0.7);
+  }
+
+  .ed-label__rule {
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background-color: currentColor;
+    flex-shrink: 0;
+  }
+
+  /* ── Section heading ────────────────────────────────────────── */
+  .ed-heading {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-display);
+    color: var(--color-navy);
+    text-transform: uppercase;
+  }
+
+  .ed-heading--on-dark {
+    color: var(--color-white);
+  }
+
+  .ed-heading--2xl {
+    font-size: clamp(3rem, 8vw, var(--text-display-2xl));
+  }
+
+  .ed-heading--xl {
+    font-size: clamp(2.5rem, 6vw, var(--text-display-xl));
+  }
+
+  .ed-heading--lg {
+    font-size: clamp(2.35rem, 5.5vw, var(--text-display-lg));
+  }
+
+  .ed-heading--md {
+    font-size: clamp(1.75rem, 3.5vw, var(--text-display-md));
+  }
+
+  .ed-heading--sm {
+    font-size: clamp(1.5rem, 2.5vw, var(--text-display-sm));
+  }
+
+  .ed-heading__accent {
+    color: var(--color-gold-on-light);
+  }
+
+  .ed-heading--on-dark .ed-heading__accent {
+    color: var(--color-bright-gold);
+  }
+
+  /* ── Badge ──────────────────────────────────────────────────── */
+  .ed-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 0.375rem 0.625rem;
+    border-radius: 0;
+    border: var(--border-width) solid transparent;
+  }
+
+  .ed-badge--gold {
+    background-color: rgb(232 160 32 / 0.12);
+    color: var(--color-gold-on-light);
+    border-color: var(--color-border-gold);
+  }
+
+  .ed-badge--teal {
+    background-color: rgb(14 124 123 / 0.1);
+    color: var(--color-teal);
+    border-color: var(--color-border-teal);
+  }
+
+  .ed-badge--navy {
+    background-color: rgb(7 28 63 / 0.08);
+    color: var(--color-navy);
+    border-color: var(--color-border);
+  }
+
+  .ed-badge--outline {
+    background-color: transparent;
+    color: var(--color-muted);
+    border-color: var(--color-border-strong);
+  }
+
+  /* ── Card base ──────────────────────────────────────────────── */
+  .ed-card {
+    position: relative;
+    background-color: var(--color-white);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-none);
+    transition:
+      border-color var(--transition-base),
+      box-shadow var(--transition-base);
+  }
+
+  .ed-card:hover {
+    border-color: var(--color-border-strong);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .ed-card--dark {
+    background-color: var(--color-navy);
+    border-color: rgb(255 255 255 / 0.1);
+    color: var(--color-white);
+  }
+
+  .ed-card--dark:hover {
+    border-color: rgb(255 255 255 / 0.2);
+    box-shadow: var(--shadow-md);
+  }
+
+  .ed-card--flat {
+    box-shadow: none;
+  }
+
+  .ed-card--flat:hover {
+    box-shadow: none;
+  }
+
+  /* ── Stat ───────────────────────────────────────────────────── */
+  .ed-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .ed-stat__value {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: var(--leading-display);
+    color: var(--color-gold);
+    letter-spacing: var(--tracking-display);
+  }
+
+  .ed-stat__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-label-md);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .ed-stat--on-dark .ed-stat__value {
+    color: var(--color-bright-gold);
+  }
+
+  .ed-stat--on-dark .ed-stat__label {
+    color: rgb(255 255 255 / 0.6);
+  }
+}

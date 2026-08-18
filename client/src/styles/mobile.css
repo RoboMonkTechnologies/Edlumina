@@ -1,0 +1,327 @@
+/**
+ * Edlumina — Mobile UX (Instagram / WhatsApp / search)
+ * Layouts are redesigned below 768px, not scaled-down desktop.
+ */
+
+@layer components {
+  .ed-btn {
+    min-height: 2.75rem;
+  }
+
+  .ed-btn--lg {
+    min-height: 3rem;
+  }
+
+  .ed-skip {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* ── Phone + phablet ─────────────────────────────────────────── */
+  @media (max-width: 767.98px) {
+    .ed-container {
+      padding-inline: 1rem;
+    }
+
+    .ed-section {
+      padding-block: 3.25rem;
+    }
+
+    .ed-heading--lg {
+      font-size: clamp(1.85rem, 9vw, 2.4rem);
+    }
+
+    .ed-heading--md {
+      font-size: clamp(1.65rem, 8vw, 2.1rem);
+    }
+
+    .ed-stage {
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
+      row-gap: 0.35rem;
+    }
+
+    .ed-stage__join {
+      width: 0.65rem;
+      margin-inline: 0.3rem;
+    }
+
+    .ed-stage--on-dark {
+      color: rgb(255 255 255 / 0.58);
+    }
+
+    .ed-label {
+      font-size: 0.6875rem;
+    }
+
+    /* Hero: first screen = message + CTA, not a scaled desktop */
+    .ed-hero {
+      min-height: unset;
+    }
+
+    .ed-hero__inner {
+      min-height: unset;
+      padding-top: calc(var(--navbar-height) + 0.85rem);
+      padding-bottom: 1.75rem;
+    }
+
+    .ed-hero__headline {
+      font-size: clamp(2.55rem, 12.8vw, 3.5rem);
+      letter-spacing: 0.01em;
+    }
+
+    .ed-hero__aside {
+      display: none;
+    }
+
+    .ed-hero__cta {
+      min-height: 3rem;
+      padding-block: 0.9rem;
+    }
+
+    .ed-hero__fact {
+      min-height: 2.25rem;
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* Programs: 2×2 tabs, one-thumb */
+    .ed-programs__tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      overflow: visible;
+      scroll-snap-type: none;
+      border-bottom: 0;
+      margin-bottom: 1.25rem;
+    }
+
+    .ed-programs__tab {
+      min-width: 0;
+      min-height: 3.25rem;
+      width: 100%;
+      margin: 0;
+      padding: 0.7rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-bottom-width: 1px;
+    }
+
+    .ed-programs__tab + .ed-programs__tab {
+      margin-left: 0;
+    }
+
+    .ed-programs__tab:nth-child(even) {
+      margin-left: -1px;
+    }
+
+    .ed-programs__tab:nth-child(n + 3) {
+      margin-top: -1px;
+    }
+
+    .ed-programs__tab--active {
+      z-index: 1;
+      border-color: var(--color-navy);
+      background-color: var(--color-white);
+      border-bottom-color: #e8a020;
+      border-bottom-width: 2px;
+      color: #071c3f;
+    }
+
+    .ed-programs__tab--active .ed-programs__tab-label {
+      font-weight: 700;
+      color: #071c3f;
+    }
+
+    .ed-programs__tab-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+    }
+
+    .ed-dossier {
+      padding: 1.15rem 1.1rem 1rem;
+    }
+
+    .ed-dossier__index {
+      font-size: 3.25rem;
+    }
+
+    .ed-dossier__code,
+    .ed-dossier__meta dt {
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+    }
+
+    .ed-dossier__cta {
+      min-height: 2.75rem;
+      align-items: center;
+    }
+
+    /* Events: ticket stacks, not a squeezed sidebar */
+    .ed-invite {
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
+
+    .ed-invite__calendar {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 3.25rem;
+      padding: 0.75rem 1rem;
+      gap: 1rem;
+    }
+
+    .ed-invite__day {
+      font-size: 1.75rem;
+    }
+
+    .ed-invite__clock {
+      max-width: none;
+      writing-mode: horizontal-tb;
+      font-size: 0.6875rem;
+    }
+
+    .ed-invite__cta {
+      width: 100%;
+      min-height: 3rem;
+    }
+
+    /* Gallery: 2-up mosaic, not 12 tall slabs */
+    .ed-gallery__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .ed-gallery__frame,
+    .ed-gallery__frame--wide,
+    .ed-gallery__frame--tall,
+    .ed-gallery__frame--land,
+    .ed-gallery__frame--square {
+      min-height: 9.25rem;
+    }
+
+    .ed-gallery__frame--wide {
+      grid-column: 1 / -1;
+      min-height: 11.5rem;
+    }
+
+    .ed-gallery__brief {
+      display: none;
+    }
+
+    .ed-gallery__need {
+      font-size: 1.15rem;
+    }
+
+    .ed-gallery__caption {
+      font-size: 0.625rem;
+      letter-spacing: 0.08em;
+      padding: 0.45rem 0.55rem;
+    }
+
+    /* Contact */
+    .ed-contact__list a,
+    .ed-contact__wa,
+    .ed-contact__email {
+      min-height: 2.75rem;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .ed-contact__wa {
+      font-size: 0.6875rem !important;
+      padding-inline: 0.35rem;
+    }
+
+    .ed-field input,
+    .ed-field select,
+    .ed-field textarea {
+      min-height: 3rem;
+      font-size: 1rem;
+    }
+
+    .ed-form__submit {
+      min-height: 3.15rem;
+    }
+
+    /* Footer: readable, tappable, no nowrap overflow */
+    .ed-footer {
+      padding-top: 2.75rem;
+    }
+
+    .ed-footer__inner {
+      gap: 1.75rem;
+    }
+
+    .ed-footer__links a,
+    .ed-footer__social {
+      min-height: 2.75rem;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .ed-footer__closer {
+      font-size: clamp(2.4rem, 16vw, 3.5rem);
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .ed-footer__legal {
+      font-size: 0.6875rem;
+      letter-spacing: 0.06em;
+    }
+
+    .ed-about__frame {
+      min-height: 16.5rem;
+      max-height: 26rem;
+      aspect-ratio: 4 / 3;
+    }
+
+    .ed-whynow__year {
+      font-size: clamp(5.25rem, 28vw, 7.25rem);
+    }
+
+    .ed-whynow__note-copy {
+      font-size: 0.625rem;
+      color: rgb(213 223 236 / 0.72);
+    }
+
+    .ed-whynow__anchor {
+      min-height: 14.5rem;
+    }
+
+    .ed-whynow__pillars {
+      gap: 1rem;
+    }
+
+    .ed-whynow__pillar {
+      padding: 1.25rem 1.1rem 1.2rem 1.25rem;
+    }
+  }
+
+  @media (max-width: 359.98px) {
+    .ed-container {
+      padding-inline: 0.85rem;
+    }
+
+    .ed-hero__headline {
+      font-size: 2.35rem;
+    }
+
+    .ed-navbar__wordmark-sub {
+      display: none;
+    }
+  }
+
+  /* ── Tablet 768 ──────────────────────────────────────────────── */
+  @media (min-width: 768px) and (max-width: 1023.98px) {
+    .ed-footer__inner {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    }
+
+    .ed-hero__headline {
+      font-size: clamp(3.75rem, 9.2vw, 5.35rem);
+    }
+  }
+}

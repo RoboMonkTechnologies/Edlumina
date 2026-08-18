@@ -1,0 +1,284 @@
+/**
+ * Edlumina — Hero section
+ */
+
+@layer components {
+  .ed-hero {
+    position: relative;
+    display: flex;
+    min-height: 100svh;
+    align-items: stretch;
+    overflow: hidden;
+    overflow-x: clip;
+    background-color: #0b2854;
+    color: var(--color-white);
+  }
+
+  .ed-hero__backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .ed-hero__grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.55;
+    background-image:
+      linear-gradient(rgb(58 110 180 / 0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(58 110 180 / 0.22) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .ed-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100svh;
+    padding-top: calc(var(--navbar-height) + 1.5rem);
+    padding-bottom: 2.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .ed-hero__inner {
+      padding-top: calc(var(--navbar-height) + 2rem);
+      padding-bottom: 2.75rem;
+    }
+  }
+
+  .ed-hero__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 0;
+    flex: 1 1 auto;
+  }
+
+  @media (min-width: 1024px) {
+    .ed-hero__layout {
+      grid-template-columns: minmax(0, 1.2fr) minmax(12rem, 0.8fr);
+      gap: 1.5rem;
+      min-height: calc(100svh - var(--navbar-height) - 7.5rem);
+    }
+  }
+
+  .ed-hero__content {
+    min-width: 0;
+    max-width: 54rem;
+  }
+
+  .ed-hero__aside {
+    display: none;
+    position: relative;
+    align-self: stretch;
+    min-height: 22rem;
+    pointer-events: none;
+  }
+
+  @media (min-width: 1024px) {
+    .ed-hero__aside {
+      display: block;
+    }
+  }
+
+  .ed-hero__circuit {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.55;
+  }
+
+  .ed-hero__circuit-line {
+    stroke: rgb(232 160 32 / 0.28);
+    stroke-width: 1;
+    fill: none;
+  }
+
+  .ed-hero__circuit-line--mute {
+    stroke: rgb(90 140 205 / 0.38);
+  }
+
+  .ed-hero__circuit-node {
+    fill: #0b2854;
+    stroke: rgb(90 140 205 / 0.45);
+    stroke-width: 1;
+  }
+
+  .ed-hero__circuit-node--gold {
+    stroke: rgb(232 160 32 / 0.45);
+  }
+
+  /* ── Headline ────────────────────────────────────────────────── */
+  .ed-hero__headline {
+    font-family: var(--font-display);
+    font-size: clamp(3.1rem, 10.8vw, 7.75rem);
+    font-weight: 400;
+    line-height: 0.86;
+    letter-spacing: 0.018em;
+    text-transform: uppercase;
+    color: var(--color-white);
+  }
+
+  @media (min-width: 768px) {
+    .ed-hero__headline {
+      font-size: clamp(4.25rem, 9.4vw, 7.15rem);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .ed-hero__headline {
+      font-size: clamp(6.25rem, 8.4vw, 8.5rem);
+    }
+  }
+
+  .ed-hero__headline-line {
+    display: block;
+    overflow: hidden;
+  }
+
+  .ed-hero__headline-text {
+    display: block;
+    opacity: 0;
+  }
+
+  .ed-hero__headline-gold {
+    color: #e8a020;
+  }
+
+  /* ── Subheadline ─────────────────────────────────────────────── */
+  .ed-hero__subheadline {
+    margin-top: 1.65rem;
+    max-width: 36rem;
+    font-size: clamp(0.9375rem, 2.2vw, 1.0625rem);
+    line-height: 1.7;
+    color: rgb(255 255 255 / 0.72);
+    opacity: 0;
+  }
+
+  /* ── CTAs ────────────────────────────────────────────────────── */
+  .ed-hero__ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.85rem;
+    opacity: 0;
+  }
+
+  @media (min-width: 640px) {
+    .ed-hero__ctas {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: stretch;
+      gap: 0.875rem;
+    }
+  }
+
+  .ed-hero__cta {
+    width: 100%;
+    min-height: 3.25rem;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+    padding-inline: 1.35rem;
+    border-radius: 4px;
+  }
+
+  @media (min-width: 640px) {
+    .ed-hero__cta {
+      width: auto;
+      white-space: nowrap;
+    }
+  }
+
+  /* ── Quick facts ─────────────────────────────────────────────── */
+  .ed-hero__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.75rem 0 0;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+  }
+
+  .ed-hero__fact {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgb(255 255 255 / 0.85);
+    border: 1px solid rgb(255 255 255 / 0.15);
+    border-radius: 0;
+    background-color: transparent;
+  }
+
+  .ed-hero__fact-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--color-gold);
+    flex-shrink: 0;
+  }
+
+  /* ── Campus meta ─────────────────────────────────────────────── */
+  .ed-hero__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgb(255 255 255 / 0.08);
+    opacity: 0;
+  }
+
+  @media (min-width: 768px) {
+    .ed-hero__meta {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-top: 2.75rem;
+    }
+  }
+
+  .ed-hero__location {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    color: rgb(255 255 255 / 0.5);
+  }
+
+  .ed-hero__location-kicker {
+    color: var(--color-teal);
+    font-size: 0.5625rem;
+    letter-spacing: 0.16em;
+  }
+
+  .ed-hero__location strong {
+    font-weight: 600;
+    color: rgb(255 255 255 / 0.82);
+  }
+
+  .ed-hero__tagline {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+}

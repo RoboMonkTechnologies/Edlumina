@@ -1,0 +1,192 @@
+/**
+ * Edlumina — Mission, Vision & Core Values manifesto
+ */
+
+@layer components {
+  .ed-manifesto {
+    background-color: #f7f4ec;
+    color: #071c3f;
+  }
+
+  .ed-manifesto__shell {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+  }
+
+  @media (min-width: 768px) {
+    .ed-manifesto__shell {
+      padding-inline: var(--container-padding-md);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ed-manifesto__shell {
+      padding-inline: var(--container-padding-lg);
+    }
+  }
+
+  .ed-manifesto__header {
+    margin-bottom: 2.75rem;
+    text-align: left;
+  }
+
+  .ed-manifesto__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 6.4vw, 5.25rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #071c3f;
+  }
+
+  .ed-manifesto__charter {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 900px) {
+    .ed-manifesto__charter {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.35rem;
+    }
+  }
+
+  .ed-manifesto__block {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 2rem 1.75rem 1.85rem;
+    background-color: #ffffff;
+    border: 1px solid #d8dde5;
+    transition:
+      transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ed-manifesto__block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px -28px rgb(7 28 63 / 0.28);
+  }
+
+  .ed-manifesto__kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 0 1.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #071c3f;
+  }
+
+  .ed-manifesto__kicker::after {
+    content: '';
+    width: 2.25rem;
+    height: 1px;
+    background-color: #e8a020;
+  }
+
+  .ed-manifesto__statement {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 400;
+    color: rgb(7 28 63 / 0.72);
+  }
+
+  .ed-manifesto__principles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.25rem 2.5rem;
+    list-style: none;
+    margin: 3.25rem 0 0;
+    padding: 2.5rem 0 0;
+  }
+
+  @media (min-width: 768px) {
+    .ed-manifesto__principles {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ed-manifesto__principles {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2.75rem 2.75rem;
+    }
+  }
+
+  .ed-principle {
+    padding-top: 1.15rem;
+    border-top: 1px solid #e8a020;
+    transition: border-color 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ed-principle:hover {
+    border-top-color: #e8a020;
+    border-top-width: 2px;
+    padding-top: calc(1.15rem - 1px);
+  }
+
+  .ed-principle:hover .ed-principle__number,
+  .ed-principle:hover .ed-principle__title {
+    color: #071c3f;
+  }
+
+  .ed-principle:hover .ed-principle__number {
+    color: #e8a020;
+  }
+
+  .ed-principle__number {
+    display: block;
+    margin-bottom: 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: #0e7c7b;
+  }
+
+  .ed-principle__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.55rem, 2.4vw, 1.9rem);
+    line-height: 0.95;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #071c3f;
+    transition: color 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ed-principle:hover .ed-principle__title {
+    color: #071c3f;
+  }
+
+  .ed-principle__copy {
+    margin: 0.65rem 0 0;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: rgb(7 28 63 / 0.62);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ed-manifesto__block,
+    .ed-principle,
+    .ed-principle__title {
+      transition: none;
+    }
+
+    .ed-manifesto__block:hover {
+      transform: none;
+    }
+  }
+}

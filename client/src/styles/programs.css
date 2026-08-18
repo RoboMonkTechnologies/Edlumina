@@ -1,0 +1,465 @@
+/**
+ * Edlumina — Programs & Services
+ */
+
+@layer components {
+  .ed-programs {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background-color: #f7f4ec;
+    color: #071c3f;
+  }
+
+  .ed-programs__pattern {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.09;
+    stroke: #071c3f;
+    stroke-width: 1;
+  }
+
+  .ed-programs__pattern text {
+    fill: #071c3f;
+    stroke: none;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+  }
+
+  .ed-programs__pattern circle {
+    fill: #071c3f;
+    stroke: none;
+  }
+
+  .ed-programs > .ed-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .ed-programs__header {
+    max-width: 42rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .ed-programs__header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .ed-programs__count {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #0e7c7b;
+  }
+
+  .ed-programs__title {
+    margin-top: 1.15rem;
+  }
+
+  .ed-programs__lede {
+    margin-top: 1rem;
+    max-width: 36rem;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-muted);
+  }
+
+  /* ── Audience tabs ───────────────────────────────────────────── */
+  .ed-programs__tabs {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.35rem;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid var(--color-border);
+    scrollbar-width: none;
+  }
+
+  .ed-programs__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ed-programs__tab {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    flex: 0 0 auto;
+    min-height: 3.25rem;
+    min-width: 9.5rem;
+    padding: 0.7rem 1rem 0.9rem;
+    scroll-snap-align: start;
+    border: 1px solid transparent;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    color: var(--color-muted);
+    background: transparent;
+    text-align: left;
+    transition:
+      color 240ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ed-programs__tab::after {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: -1px;
+    height: 2px;
+    background-color: #e8a020;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ed-programs__tab-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: inherit;
+    transition: color 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ed-programs__tab-kicker {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    font-weight: 400;
+  }
+
+  .ed-programs__tab:hover {
+    color: #071c3f;
+  }
+
+  .ed-programs__tab--active {
+    color: #071c3f;
+  }
+
+  .ed-programs__tab--active .ed-programs__tab-label {
+    font-weight: 700;
+    color: #071c3f;
+  }
+
+  .ed-programs__tab--active .ed-programs__tab-kicker {
+    color: #071c3f;
+    font-weight: 500;
+  }
+
+  .ed-programs__tab--active::after {
+    transform: scaleX(1);
+  }
+
+  .ed-programs__tab:focus-visible {
+    outline: 2px solid #e8a020;
+    outline-offset: 2px;
+  }
+
+  @media (min-width: 768px) {
+    .ed-programs__tab {
+      min-width: 11rem;
+      flex: 1 1 0;
+    }
+  }
+
+  .ed-programs__summary {
+    margin-bottom: 1.5rem;
+    max-width: 40rem;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--color-muted);
+  }
+
+  /* ── Dossier grid ────────────────────────────────────────────── */
+  .ed-programs__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .ed-programs__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .ed-programs__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .ed-programs__grid--single {
+      grid-template-columns: minmax(0, 32rem);
+    }
+
+    .ed-dossier--featured {
+      grid-column: span 2;
+    }
+  }
+
+  .ed-programs__partner {
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+    max-width: 40rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    line-height: 1.7;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  /* ── Course dossier ──────────────────────────────────────────── */
+  .ed-dossier {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 1.35rem 1.35rem 1.2rem;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    transition:
+      border-color 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ed-dossier:hover {
+    border-color: rgb(7 28 63 / 0.22);
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px -22px rgb(7 28 63 / 0.35);
+  }
+
+  .ed-dossier::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: transparent;
+    transition: background-color 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ed-dossier:hover::before,
+  .ed-dossier--featured::before {
+    background-color: #e8a020;
+  }
+
+  .ed-dossier--featured {
+    padding: 1.75rem 1.6rem 1.4rem;
+    background-color: #071c3f;
+    color: #ffffff;
+    border-color: rgb(232 160 32 / 0.42);
+    box-shadow: inset 0 1px 0 rgb(232 160 32 / 0.35);
+  }
+
+  .ed-dossier--featured::after {
+    content: '';
+    position: absolute;
+    top: 0.7rem;
+    right: 0.7rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-top: 1px solid #e8a020;
+    border-right: 1px solid #e8a020;
+    pointer-events: none;
+  }
+
+  .ed-dossier--featured:hover {
+    border-color: #e8a020;
+    box-shadow:
+      inset 0 1px 0 rgb(232 160 32 / 0.45),
+      0 16px 32px -24px rgb(7 28 63 / 0.55);
+  }
+
+  .ed-dossier--featured .ed-dossier__title,
+  .ed-dossier--featured .ed-dossier__meta dd {
+    color: var(--color-white);
+  }
+
+  .ed-dossier--featured .ed-dossier__index {
+    color: rgb(255 255 255 / 0.55);
+  }
+
+  .ed-dossier--featured .ed-dossier__cta {
+    color: var(--color-white);
+  }
+
+  .ed-dossier--featured .ed-dossier__category {
+    color: rgb(255 255 255 / 0.55);
+  }
+
+  .ed-dossier--featured .ed-dossier__code {
+    color: #e8a020;
+  }
+
+  .ed-dossier--featured .ed-dossier__format dd,
+  .ed-dossier--featured .ed-dossier__fee dd {
+    color: #e8a020;
+  }
+
+  .ed-dossier__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .ed-dossier__code,
+  .ed-dossier__category {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .ed-dossier__code {
+    color: var(--color-teal);
+  }
+
+  .ed-dossier__category {
+    color: var(--color-muted);
+  }
+
+  .ed-dossier__index {
+    position: absolute;
+    right: 0.85rem;
+    top: 2.6rem;
+    font-family: var(--font-display);
+    font-size: 4.5rem;
+    line-height: 0.8;
+    color: rgb(7 28 63 / 0.55);
+    pointer-events: none;
+    user-select: none;
+    transition:
+      transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ed-dossier:hover .ed-dossier__index {
+    transform: translate(-4px, -6px);
+    color: rgb(7 28 63 / 0.14);
+  }
+
+  .ed-dossier--featured:hover .ed-dossier__index {
+    color: rgb(232 160 32 / 0.28);
+  }
+
+  .ed-dossier__title {
+    position: relative;
+    margin-top: 1.15rem;
+    max-width: 16ch;
+    font-family: var(--font-display);
+    font-size: clamp(1.65rem, 3vw, 2rem);
+    line-height: 0.95;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+  }
+
+  .ed-dossier__meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem 1.25rem;
+    margin: 1.35rem 0 0;
+    padding-top: 1.15rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  @media (min-width: 480px) {
+    .ed-dossier__meta {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .ed-dossier__fee {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .ed-dossier__meta dt {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-teal);
+    margin-bottom: 0.2rem;
+  }
+
+  .ed-dossier__meta dd {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--color-navy);
+    font-weight: 500;
+  }
+
+  .ed-dossier__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    transition: color 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ed-dossier__arrow {
+    color: #e8a020;
+    transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ed-dossier:hover .ed-dossier__cta {
+    color: var(--color-navy);
+  }
+
+  .ed-dossier:hover .ed-dossier__arrow {
+    transform: translateX(6px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ed-programs__tab::after,
+    .ed-dossier,
+    .ed-dossier::before,
+    .ed-dossier__index,
+    .ed-dossier__arrow {
+      transition: none;
+    }
+
+    .ed-dossier:hover {
+      transform: none;
+    }
+
+    .ed-dossier:hover .ed-dossier__index,
+    .ed-dossier:hover .ed-dossier__arrow {
+      transform: none;
+    }
+  }
+}

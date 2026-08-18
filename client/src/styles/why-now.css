@@ -1,0 +1,338 @@
+/**
+ * Edlumina — Why Now
+ */
+
+@layer components {
+  .ed-whynow {
+    position: relative;
+    overflow: hidden;
+    background-color: #102a4c;
+    color: #ffffff;
+  }
+
+  .ed-whynow__backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .ed-whynow__grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.45;
+    background-image:
+      linear-gradient(rgb(70 120 175 / 0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(70 120 175 / 0.22) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .ed-whynow__layout {
+    display: grid;
+    gap: 2.75rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .ed-whynow__layout {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.1fr);
+      gap: 4rem;
+      min-height: 24rem;
+    }
+  }
+
+  /* ── NEP 2020 centerpiece ────────────────────────────────────── */
+  .ed-whynow__anchor {
+    position: relative;
+    min-height: 16.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (min-width: 1024px) {
+    .ed-whynow__anchor {
+      min-height: 26rem;
+    }
+  }
+
+  .ed-whynow__emblem {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 28rem);
+    padding: 2.25rem 1.5rem 2rem;
+  }
+
+  .ed-whynow__emblem-corner {
+    position: absolute;
+    width: 1.15rem;
+    height: 1.15rem;
+    border-color: #e8a020;
+    border-style: solid;
+    border-width: 0;
+  }
+
+  .ed-whynow__emblem-corner--tl {
+    top: 0;
+    left: 0;
+    border-top-width: 1px;
+    border-left-width: 1px;
+  }
+
+  .ed-whynow__emblem-corner--tr {
+    top: 0;
+    right: 0;
+    border-top-width: 1px;
+    border-right-width: 1px;
+  }
+
+  .ed-whynow__emblem-corner--bl {
+    bottom: 0;
+    left: 0;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+  }
+
+  .ed-whynow__emblem-corner--br {
+    bottom: 0;
+    right: 0;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+  }
+
+  .ed-whynow__emblem-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #e8a020;
+  }
+
+  .ed-whynow__year {
+    font-family: var(--font-display);
+    font-size: clamp(6.5rem, 18vw, 11.5rem);
+    line-height: 0.82;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    user-select: none;
+  }
+
+  .ed-whynow__year-rule {
+    display: block;
+    width: 4.5rem;
+    height: 1px;
+    margin-top: 0.85rem;
+    background-color: #e8a020;
+  }
+
+  .ed-whynow__note {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    max-width: 10.5rem;
+  }
+
+  .ed-whynow__note-dot {
+    width: 5px;
+    height: 5px;
+    background-color: #e8a020;
+    margin-bottom: 0.3rem;
+  }
+
+  .ed-whynow__note-label {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #0e7c7b;
+  }
+
+  .ed-whynow__note-copy {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(213 223 236 / 0.78);
+  }
+
+  .ed-whynow__note--nep {
+    top: 6%;
+    left: 2%;
+  }
+
+  .ed-whynow__note--skills {
+    top: 8%;
+    right: 2%;
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  .ed-whynow__note--now {
+    bottom: 8%;
+    left: 4%;
+  }
+
+  .ed-whynow__note--future {
+    bottom: 6%;
+    right: 2%;
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  @media (max-width: 479px) {
+    .ed-whynow__note--skills,
+    .ed-whynow__note--future {
+      display: none;
+    }
+  }
+
+  /* ── Copy ────────────────────────────────────────────────────── */
+  .ed-whynow__title {
+    margin-top: 1.25rem;
+    max-width: 18ch;
+    color: #ffffff;
+  }
+
+  .ed-whynow__quote {
+    margin: 2rem 0 0;
+    padding: 0.15rem 0 0 1.35rem;
+    border-left: 1px solid #e8a020;
+    max-width: 38rem;
+  }
+
+  .ed-whynow__quote p {
+    font-family: var(--font-body);
+    font-size: clamp(0.98rem, 1.8vw, 1.125rem);
+    line-height: 1.75;
+    color: #d5dfec;
+  }
+
+  .ed-whynow__quote footer {
+    margin-top: 1.25rem;
+  }
+
+  .ed-whynow__quote cite {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-style: normal;
+  }
+
+  .ed-whynow__quote strong {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .ed-whynow__quote cite span {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgb(213 223 236 / 0.62);
+  }
+
+  /* ── Differentiators ─────────────────────────────────────────── */
+  .ed-whynow__pillars {
+    display: grid;
+    gap: 1.25rem;
+    margin: 3.25rem 0 0;
+    padding: 2.25rem 0 0;
+    list-style: none;
+    border-top: 1px solid rgb(213 223 236 / 0.14);
+  }
+
+  @media (min-width: 768px) {
+    .ed-whynow__pillars {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  .ed-whynow__pillar {
+    position: relative;
+    padding: 1.5rem 1.25rem 1.4rem 1.4rem;
+    border: 1px solid rgb(213 223 236 / 0.12);
+    background-color: rgb(16 42 76 / 0.35);
+    transition:
+      transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ed-whynow__pillar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: rgb(232 160 32 / 0.35);
+    transition: background-color 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ed-whynow__pillar:hover {
+    transform: translateY(-5px);
+    border-color: rgb(232 160 32 / 0.4);
+    background-color: rgb(255 255 255 / 0.03);
+  }
+
+  .ed-whynow__pillar:hover::before {
+    background-color: #e8a020;
+  }
+
+  .ed-whynow__pillar-index {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.95rem;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .ed-whynow__pillar-index span:first-child {
+    color: #e8a020;
+    font-weight: 600;
+  }
+
+  .ed-whynow__pillar-index span:last-child {
+    color: #0e7c7b;
+  }
+
+  .ed-whynow__pillar h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.55rem, 2.5vw, 1.95rem);
+    line-height: 0.95;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  .ed-whynow__pillar p:last-child {
+    margin-top: 0.7rem;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: #d5dfec;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ed-whynow__pillar {
+      transition: none;
+    }
+
+    .ed-whynow__pillar:hover {
+      transform: none;
+    }
+  }
+}

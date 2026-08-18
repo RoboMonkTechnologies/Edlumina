@@ -1,0 +1,141 @@
+/**
+ * Edlumina — Editorial testimonials (no carousel, no fake portraits)
+ */
+
+@layer components {
+  .ed-testimonials {
+    background-color: var(--color-cream);
+    color: var(--color-navy);
+  }
+
+  .ed-testimonials__header {
+    margin-bottom: 2.25rem;
+    max-width: 36rem;
+  }
+
+  .ed-testimonials__header .ed-heading {
+    margin-top: 1.15rem;
+  }
+
+  .ed-testimonials__layout {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    .ed-testimonials__layout {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+  }
+
+  .ed-testimonials__pair {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .ed-quote {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 1.5rem 1.35rem 1.35rem;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-left: 2px solid var(--color-gold);
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .ed-quote {
+      padding: 1.85rem 1.75rem 1.5rem;
+    }
+  }
+
+  .ed-quote--featured {
+    min-height: 100%;
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    border-color: rgb(255 255 255 / 0.08);
+    border-left-color: var(--color-gold);
+  }
+
+  .ed-quote__mark {
+    position: absolute;
+    top: 0.15rem;
+    right: 0.85rem;
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 10vw, 7.5rem);
+    line-height: 0.75;
+    color: rgb(232 160 32 / 0.22);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .ed-quote--featured .ed-quote__mark {
+    color: rgb(232 160 32 / 0.28);
+  }
+
+  .ed-quote__index {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-teal);
+    margin-bottom: 1.15rem;
+  }
+
+  .ed-quote--featured .ed-quote__index {
+    color: var(--color-gold);
+  }
+
+  .ed-quote__text {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    line-height: 1.55;
+    font-weight: 500;
+    max-width: 36rem;
+  }
+
+  .ed-quote--featured .ed-quote__text {
+    font-size: clamp(1.35rem, 2.6vw, 2rem);
+    color: rgb(255 255 255 / 0.92);
+  }
+
+  .ed-quote__footer {
+    margin-top: auto;
+    padding-top: 1.35rem;
+  }
+
+  .ed-quote__footer cite {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-style: normal;
+  }
+
+  .ed-quote__footer strong {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+
+  .ed-quote--featured .ed-quote__footer strong {
+    color: var(--color-white);
+  }
+
+  .ed-quote__footer span {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .ed-quote--featured .ed-quote__footer span {
+    color: rgb(255 255 255 / 0.5);
+  }
+}
